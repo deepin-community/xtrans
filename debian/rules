@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+# debian/rules for the Debian xtrans-dev package.
+# Copyright © 2004 Scott James Remnant <scott@netsplit.com>
+# Copyright © 2005 Daniel Stone <daniel@fooishbar.org>
+# Copyright © 2005 David Nusinow <dnusinow@debian.org>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		--libdir=/usr/lib \
+		--docdir=/usr/share/doc/xtrans-dev \
+		--with-xmlto \
+		--without-fop \
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+%:
+	dh $@ --with quilt \
+		--builddirectory=build/

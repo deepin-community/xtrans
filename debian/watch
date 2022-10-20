@@ -1,0 +1,3 @@
+#git=https://gitlab.freedesktop.org/xorg/lib/libxtrans.git
+version=3
+https://www.x.org/releases/individual/lib/ xtrans-(.*)\.tar\.gz
